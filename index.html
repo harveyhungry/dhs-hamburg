@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hội Du Học Sinh Hamburg — VSHH e.V.</title>
+  <meta name="description" content="Trang thông tin chính thức của Hội Du học sinh Việt Nam tại Hamburg — Ban chấp hành Khoá 14.">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Hero Header -->
+  <div class="hero">
+    <img src="img/ViTet.jpg" alt="Sự kiện Vị Tết — Hội DHS Hamburg" class="hero-img">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-flags">
+        <img src="https://flagcdn.com/w40/vn.png" width="28" alt="VN" style="border-radius:2px">
+        <div class="flag-dot"></div>
+        <img src="https://flagcdn.com/w40/de.png" width="28" alt="DE" style="border-radius:2px">
+      </div>
+      <div class="hero-title">Hội Du Học Sinh Hamburg</div>
+      <div class="hero-sub">VSHH e.V. — Vietnamesischer Studierendenverein Hamburg</div>
+      <div class="hero-badge">Ban chấp hành Khoá 14</div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Navigation -->
+    <div class="nav">
+      <button class="nav-item active" data-tab="vision">Giới thiệu</button>
+      <button class="nav-item" data-tab="events">Sự kiện & Kế hoạch</button>
+      <button class="nav-item" data-tab="org">Sơ đồ tổ chức</button>
+      <button class="nav-item" data-tab="roles">Nhiệm vụ các ban</button>
+      <button class="nav-item" data-tab="contact">Liên hệ</button>
+    </div>
+
+    <!-- Tab containers -->
+    <div class="tab-content active" id="tab-vision" data-page="pages/vision.html"></div>
+    <div class="tab-content" id="tab-events" data-page="pages/events.html"></div>
+    <div class="tab-content" id="tab-org" data-page="pages/org.html"></div>
+    <div class="tab-content" id="tab-roles" data-page="pages/roles.html"></div>
+    <div class="tab-content" id="tab-contact" data-page="pages/contact.html"></div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="hero-flags" style="margin-top:0;margin-bottom:8px;justify-content:center">
+        <img src="https://flagcdn.com/w40/vn.png" width="20" alt="VN" style="border-radius:2px">
+        <div class="flag-dot"></div>
+        <img src="https://flagcdn.com/w40/de.png" width="20" alt="DE" style="border-radius:2px">
+      </div>
+      Hội Du học sinh Việt Nam tại Hamburg · Ban chấp hành Khoá 14
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Load page partials
+    document.querySelectorAll('.tab-content[data-page]').forEach(function(tab) {
+      fetch(tab.dataset.page)
+        .then(function(r) { return r.text(); })
+        .then(function(html) { tab.innerHTML = html; })
+        .catch(function() { tab.innerHTML = '<p style="text-align:center;color:var(--text-muted)">Không thể tải nội dung. Vui lòng thử lại.</p>'; });
+    });
+  </script>
+</body>
+</html>
