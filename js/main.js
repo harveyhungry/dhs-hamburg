@@ -3,6 +3,9 @@
    Main JavaScript
    ═══════════════════════════════════════════ */
 
+// Sub-tab to parent mapping (keeps parent nav item highlighted)
+var TAB_PARENTS = { 'amvangtudo': 'events' };
+
 // Tab switching
 function switchTab(tabId) {
   document.querySelectorAll('.tab-content').forEach(function (c) {
@@ -15,7 +18,8 @@ function switchTab(tabId) {
   var el = document.getElementById('tab-' + tabId);
   if (el) el.classList.add('active');
 
-  var btn = document.querySelector('.nav-item[data-tab="' + tabId + '"]');
+  var navId = TAB_PARENTS[tabId] || tabId;
+  var btn = document.querySelector('.nav-item[data-tab="' + navId + '"]');
   if (btn) btn.classList.add('active');
 }
 
@@ -30,3 +34,4 @@ document.querySelectorAll('.nav-item[data-tab]').forEach(function (btn) {
 function toggleRole(hdr) {
   hdr.parentElement.classList.toggle('open');
 }
+
